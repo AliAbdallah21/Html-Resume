@@ -1,0 +1,56 @@
+.hero-section {
+    background: linear-gradient(
+      135deg,
+      var(--primary-600),
+      var(--primary-800)
+    );
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .hero-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background-image: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.1) 1px,
+      transparent 1px
+    );
+    background-size: 40px 40px;
+    animation: moveGrid 20s linear infinite;
+  }
+  
+  @keyframes moveGrid {
+    from { transform: translate(0, 0); }
+    to { transform: translate(40px, 40px); }
+  }
+  
+  .profile-image {
+    border: 4px solid var(--surface-0);
+    box-shadow: var(--shadow-xl);
+    transition: var(--transition-normal);
+  }
+  
+  .profile-image:hover {
+    transform: scale(1.03);
+    box-shadow: var(--shadow-2xl);
+  }
+  
+  .hero-content h1 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .hero-content .btn-outline-light {
+    border-width: 2px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .hero-content .btn-outline-light:hover {
+    color: var(--primary-600) !important;
+    background: var(--surface-0);
+  }

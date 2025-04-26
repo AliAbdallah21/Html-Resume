@@ -1,0 +1,153 @@
+/* ========================
+   EXPERIENCE TIMELINE
+   ======================== */
+   #experience {
+    background: linear-gradient(
+      145deg,
+      var(--surface-50),
+      var(--surface-0)
+    );
+    padding: var(--space-3xl) 0;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .experience-accordion {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .experience-accordion::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      var(--primary-500),
+      transparent 90%
+    );
+    transform: translateX(-50%);
+    opacity: 0.15;
+  }
+  
+  .experience-accordion .accordion-item {
+    background: rgba(var(--surface-0), 0.9);
+    border: 1px solid var(--surface-200);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(12px);
+    margin-bottom: var(--space-md);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-slow);
+  }
+  
+  .experience-accordion .accordion-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .experience-accordion .accordion-button {
+    background: transparent !important;
+    font-size: 1.1em;
+    padding: var(--space-md);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0 !important;
+  }
+  
+  .experience-accordion .accordion-button::after {
+    filter: invert(20%);
+    transition: var(--transition-fast);
+  }
+  
+  .experience-accordion .accordion-button:not(.collapsed) {
+    color: var(--primary-600);
+    box-shadow: none;
+    background: rgba(var(--primary-500), 0.05) !important;
+  }
+  
+  .experience-accordion .accordion-button:focus {
+    box-shadow: none;
+  }
+  
+  .timeline-date {
+    position: relative;
+    padding-left: var(--space-xl);
+  }
+  
+  .timeline-date::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    background: var(--primary-500);
+    border-radius: var(--radius-full);
+    box-shadow: 0 0 0 4px rgba(var(--primary-500), 0.1);
+  }
+  
+  .tech-badge {
+    background: rgba(var(--primary-500), 0.1) !important;
+    color: var(--primary-600) !important;
+    border: 1px solid rgba(var(--primary-500), 0.2) !important;
+    padding: var(--space-3xs) var(--space-sm);
+    border-radius: var(--radius-full);
+    font-weight: 500;
+    transition: var(--transition-fast);
+  }
+  
+  .tech-badge:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(var(--primary-500), 0.1);
+  }
+  
+  /* Dark Mode */
+  [data-theme="dark"] #experience {
+    background: linear-gradient(
+      145deg,
+      var(--surface-900),
+      var(--surface-800)
+    );
+  }
+  
+  [data-theme="dark"] .experience-accordion .accordion-item {
+    background: rgba(var(--surface-800), 0.95);
+    border-color: var(--surface-700);
+  }
+  
+  [data-theme="dark"] .experience-accordion .accordion-button {
+    color: var(--surface-200);
+  }
+  
+  [data-theme="dark"] .experience-accordion .accordion-button:not(.collapsed) {
+    color: var(--primary-400);
+    background: rgba(var(--primary-500), 0.1) !important;
+  }
+  
+  [data-theme="dark"] .tech-badge {
+    background: rgba(var(--primary-500), 0.2) !important;
+    border-color: rgba(var(--primary-500), 0.3) !important;
+  }
+  
+  /* Animations */
+  @keyframes timelineEntry {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .experience-accordion > * {
+    animation: timelineEntry 0.6s ease-out forwards;
+    opacity: 0;
+  }
+  
+  .experience-accordion > *:nth-child(1) { animation-delay: 0.1s; }
+  .experience-accordion > *:nth-child(2) { animation-delay: 0.2s; }
+  .experience-accordion > *:nth-child(3) { animation-delay: 0.3s; }
